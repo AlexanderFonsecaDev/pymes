@@ -1,103 +1,59 @@
 <?php
-
 class Usuario extends EntidadBase{
-    private $id,$nombre,$apellido,$email,$password;
-
-    public function __construct()
-    {
-        $table = "usuarios";
-        parent::__construct($table);
+    private $id;
+    private $nombre;
+    private $apellido;
+    private $email;
+    private $password;
+    
+    public function __construct($adapter) {
+        $table="usuarios";
+        parent::__construct($table, $adapter);
     }
-
-    /**
-     * @return mixed
-     */
-    public function getId()
-    {
+    
+    public function getId() {
         return $this->id;
     }
 
-    /**
-     * @param mixed $id
-     * @return Usuario
-     */
-    public function setId($id)
-    {
+    public function setId($id) {
         $this->id = $id;
-        return $this;
     }
-
-    /**
-     * @return mixed
-     */
-    public function getNombre()
-    {
+    
+    public function getNombre() {
         return $this->nombre;
     }
 
-    /**
-     * @param mixed $nombre
-     * @return Usuario
-     */
-    public function setNombre($nombre)
-    {
+    public function setNombre($nombre) {
         $this->nombre = $nombre;
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getApellido()
-    {
+    public function getApellido() {
         return $this->apellido;
     }
 
-    /**
-     * @param mixed $apellido
-     * @return Usuario
-     */
-    public function setApellido($apellido)
-    {
+    public function setApellido($apellido) {
         $this->apellido = $apellido;
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getEmail()
-    {
+    public function getEmail() {
         return $this->email;
     }
 
-    /**
-     * @param mixed $email
-     * @return Usuario
-     */
-    public function setEmail($email)
-    {
+    public function setEmail($email) {
         $this->email = $email;
-        return $this;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getPassword()
-    {
+    public function getPassword() {
         return $this->password;
     }
 
-    /**
-     * @param mixed $password
-     * @return Usuario
-     */
-    public function setPassword($password)
-    {
+    public function setPassword($password) {
         $this->password = $password;
-        return $this;
     }
+
+
+
+
 
     public function save(){
         $query="INSERT INTO usuarios (id,nombre,apellido,email,password)
@@ -111,7 +67,5 @@ class Usuario extends EntidadBase{
         return $save;
     }
 
-
 }
-
 ?>

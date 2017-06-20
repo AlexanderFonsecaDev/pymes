@@ -1,0 +1,27 @@
+
+.escala{
+    background: #3b5998;
+    border-bottom: 2px solid #29487d;
+    color: #ffffff;
+    text-decoration: none;
+    font-family: arial;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    width: 110px;
+    transition: .3s all;
+    z-index: 1;
+    margin: 10px auto;
+}
+
+.escala:hover{
+    cursor: pointer;
+    transform: scale(1.2);
+    opacity: .9;
+}
+
+.contador{
+    font-weight:200;
+}

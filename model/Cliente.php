@@ -1,13 +1,22 @@
 <?php
 
-class Cliente extends EntidadBase{
 
-    private $Cedula,$Nick,$Nombre,$Apellido,$Correo,$Password,$Telefono;
 
-    public function __construct()
+
+class Cliente extends EntidadBase
+{
+    private $cedula;
+    private $nick;
+    private $nombre;
+    private $apellido;
+    private $correo;
+    private $password;
+    private $telefono;
+
+    public function __construct($adapter)
     {
         $table = "cliente";
-        parent::__construct($table);
+        parent::__construct($table, $adapter);
     }
 
     /**
@@ -15,16 +24,16 @@ class Cliente extends EntidadBase{
      */
     public function getCedula()
     {
-        return $this->Cedula;
+        return $this->cedula;
     }
 
     /**
-     * @param mixed $Cedula
+     * @param mixed $cedula
      * @return Cliente
      */
-    public function setCedula($Cedula)
+    public function setCedula($cedula)
     {
-        $this->Cedula = $Cedula;
+        $this->cedula = $cedula;
         return $this;
     }
 
@@ -33,16 +42,16 @@ class Cliente extends EntidadBase{
      */
     public function getNick()
     {
-        return $this->Nick;
+        return $this->nick;
     }
 
     /**
-     * @param mixed $Nick
+     * @param mixed $nick
      * @return Cliente
      */
-    public function setNick($Nick)
+    public function setNick($nick)
     {
-        $this->Nick = $Nick;
+        $this->nick = $nick;
         return $this;
     }
 
@@ -51,16 +60,16 @@ class Cliente extends EntidadBase{
      */
     public function getNombre()
     {
-        return $this->Nombre;
+        return $this->nombre;
     }
 
     /**
-     * @param mixed $Nombre
+     * @param mixed $nombre
      * @return Cliente
      */
-    public function setNombre($Nombre)
+    public function setNombre($nombre)
     {
-        $this->Nombre = $Nombre;
+        $this->nombre = $nombre;
         return $this;
     }
 
@@ -69,16 +78,16 @@ class Cliente extends EntidadBase{
      */
     public function getApellido()
     {
-        return $this->Apellido;
+        return $this->apellido;
     }
 
     /**
-     * @param mixed $Apellido
+     * @param mixed $apellido
      * @return Cliente
      */
-    public function setApellido($Apellido)
+    public function setApellido($apellido)
     {
-        $this->Apellido = $Apellido;
+        $this->apellido = $apellido;
         return $this;
     }
 
@@ -87,16 +96,16 @@ class Cliente extends EntidadBase{
      */
     public function getCorreo()
     {
-        return $this->Correo;
+        return $this->correo;
     }
 
     /**
-     * @param mixed $Correo
+     * @param mixed $correo
      * @return Cliente
      */
-    public function setCorreo($Correo)
+    public function setCorreo($correo)
     {
-        $this->Correo = $Correo;
+        $this->correo = $correo;
         return $this;
     }
 
@@ -105,16 +114,16 @@ class Cliente extends EntidadBase{
      */
     public function getPassword()
     {
-        return $this->Password;
+        return $this->password;
     }
 
     /**
-     * @param mixed $Password
+     * @param mixed $password
      * @return Cliente
      */
-    public function setPassword($Password)
+    public function setPassword($password)
     {
-        $this->Password = $Password;
+        $this->password = $password;
         return $this;
     }
 
@@ -123,7 +132,7 @@ class Cliente extends EntidadBase{
      */
     public function getTelefono()
     {
-        return $this->Telefono;
+        return $this->telefono;
     }
 
     /**
@@ -132,25 +141,24 @@ class Cliente extends EntidadBase{
      */
     public function setTelefono($telefono)
     {
-        $this->Telefono = $telefono;
+        $this->telefono = $telefono;
         return $this;
     }
 
-    public function save(){
-        $query="INSERT INTO cliente (Cedula, Nick, Nombre, Apellido, Correo, Password, Telefono) 
-                VALUES ('".$this->Cedula."',
-                       '".$this->Nick."',
-                       '".$this->Nombre."',
-                       '".$this->Apellido."',
-                       '".$this->Correo."'),
-                       '".$this->Password."',
-                       '".$this->Telefono."';";
-        $save=$this->db()->query($query);
+    public function save()
+    {
+        $query = "INSERT INTO cliente (cedula,nick,nombre,apellido,correo,password,telefono)
+                VALUES('" . $this->cedula . "',
+                       '" . $this->nick . "',
+                       '" . $this->nombre . "',
+                       '" . $this->apellido . "',
+                       '" . $this->correo . "' ,
+                       '" . $this->password . "' ,
+                       '" . $this->telefono . "');";
+        $save = $this->db()->query($query);
         //$this->db()->error;
         return $save;
     }
 
+
 }
-
-?>
-

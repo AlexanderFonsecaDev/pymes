@@ -1,12 +1,10 @@
 <?php
-
 return array(
-    "driver"   => "mysql",
-    "host"     => "localhost",
-    "user"     => "root",
-    "password" => "",
-    "database" => "pymes",
-    "charset"  => "utf8"
+    "driver"    =>"mysql",
+    "host"      =>"localhost",
+    "user"      =>"root",
+    "pass"      =>"",
+    "database"  =>"pymes",
+    "charset"   =>"utf8"
 );
-
 ?>
